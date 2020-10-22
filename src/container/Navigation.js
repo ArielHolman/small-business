@@ -1,10 +1,11 @@
 import { connect } from "react-redux";
-import Business from "../components/Business";
+import Navigation from "../components/Navigation";
 
 const mapStateToProps = (state) => {
   return {
     businesses: state.businesses,
+    user: state.user,
   };
 };
 
-export default connect(mapStateToProps)(Business);
+export default connect(mapStateToProps)(Navigation);

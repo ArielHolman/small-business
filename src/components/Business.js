@@ -1,22 +1,23 @@
 import React from "react";
-import businesses from "../businesses.json";
 import { Container } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
+import MapContainer from "./MapContainer";
 
 const Business = (props) => {
   const id = props.match.params.id;
-
-  const business = businesses.find((business) => business.id == id);
-
+  const business = props.businesses.find((business) => business.id == id);
+  console.log(id);
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="sm" className="business-card">
       <Typography className="biz-paper">
-        <h2>{business["Name"]}</h2>
-        <h5>{business["Address"]}</h5>
-        <h5>{business["Hours"]}</h5>
-        <p>{business["Description"]}</p>
+        <h2>{business["name"]}</h2>
+        <h5>{business["address"]}</h5>
+        <h5>{business["hours"]}</h5>
+        <p>{business["description"]}</p>
       </Typography>
+      <MapContainer className="map" lat={business.lat} lng={business.lng} />
     </Container>
   );
 };
+
 export default Business;

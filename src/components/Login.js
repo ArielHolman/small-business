@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-// import { Redirect } from 'react-router'
+import { Redirect } from "react-router-dom";
 import { TextField, Button, Container } from "@material-ui/core";
 
 class App extends Component {
   state = {
     username: "",
     password: "",
+    redirectHome: false,
   };
 
   handleTextChange = (e) => {
@@ -17,10 +18,14 @@ class App extends Component {
   login = (e) => {
     e.preventDefault();
     document.cookie = "loggedIn=true;max-age=60*1000";
-    window.location.replace("/");
+    this.props.setUser(this.state.username);
+    this.setState({ redirectHome: true });
   };
 
   render() {
+    if (this.state.redirectHome) {
+      return <Redirect to="/" />;
+    }
     return (
       <div className="App">
         <Container maxWidth="sm">
