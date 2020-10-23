@@ -40,6 +40,9 @@ ul {
 .nav-list {
   list-style: none;
   display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-left: auto;
 }
 
 .nav-list-item {
@@ -50,9 +53,12 @@ ul {
   cursor: pointer;
 }
 
+.nav-title {
+  text-align: left;
+}
+
 .biz-paper {
   margin-top: 50px;
-  padding: 25px;
 }
 
 p {
@@ -65,4 +71,9 @@ p {
 
 .business-card {
   margin-bottom: 80pt;
+}
+
+h5 {
+  margin-block-start: 0em;
+  margin-block-end: 0em;
 }

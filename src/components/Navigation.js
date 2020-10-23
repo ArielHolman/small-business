@@ -13,7 +13,9 @@ export default function Navigation(props) {
     <div>
       <AppBar position="relative">
         <Toolbar className="nav-bar">
-          <Typography variant="h6">Austin Small Business</Typography>
+          <Typography variant="h6" className="nav-title">
+            Austin Small Business
+          </Typography>
           <ul className="nav-list">
             <Button color="inherit" className="nav-list-item">
               <Link to="/">Listing</Link>
@@ -21,10 +23,12 @@ export default function Navigation(props) {
             <li>
               {document.cookie === "loggedIn=true" && (
                 <div>
-                  <Button color="inherit">
+                  <Button color="inherit" className="nav-list-item">
                     <Link to="/add">Add</Link>
                   </Button>
                   <Button
+                    color="inherit"
+                    className="nav-list-item"
                     onClick={() => {
                       document.cookie = "loggedIn=";
                       window.location.replace("/login");
@@ -38,6 +42,8 @@ export default function Navigation(props) {
             <li color="inherit" className="nav-list-item">
               {document.cookie !== "loggedIn=true" && (
                 <Button
+                  color="inherit"
+                  className="nav-list-item"
                   onClick={() => {
                     document.cookie = "loggedIn=";
                     window.location.replace("/login");

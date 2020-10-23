@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React from "react";
 import { Container } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
@@ -8,12 +9,12 @@ const Business = (props) => {
   const business = props.businesses.find((business) => business.id == id);
   console.log(id);
   return (
-    <Container maxWidth="sm" className="business-card">
+    <Container style={{ height: "50vh", width: "45vw" }}>
       <Typography className="biz-paper">
         <h2>{business["name"]}</h2>
-        <h5>{business["address"]}</h5>
-        <h5>{business["hours"]}</h5>
-        <p>{business["description"]}</p>
+        <h5>Address:</h5> <p> {business["address"]}</p>
+        <h5>Hours:</h5> <p> {business["hours"]} </p>
+        <h5>Description:</h5> <p> "{business["description"]}"</p>
       </Typography>
       <MapContainer className="map" lat={business.lat} lng={business.lng} />
     </Container>
